@@ -1,8 +1,11 @@
 <?php
-    require_once('classes/database.php');
-    $con = new database();
+    session_start();
+    if (!isset($_SESSION['admin_id'])) {
+        header("Location: login.php");
+        exit();
+    }
 
-    $data = $con->opencon();
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
